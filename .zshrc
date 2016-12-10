@@ -25,6 +25,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 alias soccerwindows2="soccerwindow2 -c --debug-server-mode"
+alias is0335ri="ssh is0335ri@sshgate.ritsumei.ac.jp"
+alias rione_server="ssh rione@rione.org"
+alias rm="trash-put"
 
 #履歴の保存先
 HISTFILE=$HOME/.zsh-history
@@ -181,9 +184,6 @@ alias cp="cp -i"	#上書きを確認
 
 #sl
 alias -g sl="echo you are an idiot!"
-
-#rm
-alias rm="rm -i"
 
 #打ち間違い対策
 alias s="ls"
