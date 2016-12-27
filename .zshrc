@@ -202,6 +202,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias :q="exit"
 
+# Ri-oneサッカー
+alias ./start.sh="./start.sh --debug-server-connect"
+
 #geditのデバッグを消去
 alias gedit="gedit $@ > /dev/null 2> /dev/null"
 
