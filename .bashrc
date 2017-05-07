@@ -2,26 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#pyenv�ݒ�
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-alias rm='rm -i'
-
-alias s='ls --color=auto'
-alias l='ls --color=auto'
-alias sl='ls --color=auto'
-
-alias vim='nvim'
-alias :q='exit'
-
-#latexコンパイル
-alias lmk='latexmk -pvc -pdfdvi'
-
-export XDG_CONFIG_HOME=~/.config
-
-# If not running interctively, don't do anything
+# If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
@@ -56,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -103,13 +84,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vim='nvim'
+alias :q='exit'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,6 +115,7 @@ if ! shopt -oq posix; then
   fi
 fi
 source /opt/ros/indigo/setup.bash
-source /opt/ros/indigo/setup.bash
-
-export TURTLEBOT_3D_SENSOR="kinect"
+source ~/catkin_ws/devel/setup.bash
+export ROS_MASTER_URI=http://localhost:11311
+export ROS_HOSTNAME=localhost
+export XDG_CONFIG_HOME=/home/yamagen/.config
