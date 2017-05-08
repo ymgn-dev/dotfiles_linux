@@ -133,13 +133,13 @@ nnoremap <F3> g<C-]>
 nnoremap <F2> <C-t>
 
 "9で行頭にカーソル移動
-nnoremap 9 0
+"nnoremap 9 0
 
 "0で行末にカーソル移動
-nnoremap 0 $
+"nnoremap 0 $
 
 "rでRedo
-nnoremap r <C-r>
+"nnoremap r <C-r>
 
 " 行末の1文字先までカーソルを移動できるように
 "set virtualedit=onemore
