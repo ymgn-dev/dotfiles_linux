@@ -114,8 +114,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export XDG_CONFIG_HOME=/home/yamagen/.config
+
 source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
-export XDG_CONFIG_HOME=/home/yamagen/.config
