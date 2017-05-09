@@ -84,7 +84,7 @@ autocmd FileType python nnoremap <A-i> :call Autopep8()<CR>
 
 " 文字コード設定
 set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+set fileencodings=utf-8
 set fileformats=unix,dos,mac
 
 "OSのクリップボードを使う
@@ -113,6 +113,7 @@ set showmatch
 
 ":の履歴を保存
 set history=500
+
 "行頭、行末でカーソルを止めない
 "set whichwrap=b,s,h,l,<,>,[,]
 
