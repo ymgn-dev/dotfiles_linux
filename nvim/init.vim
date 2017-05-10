@@ -130,6 +130,7 @@ highlight LineNr ctermfg=lightgray "行番号の色
 set cursorline " カーソルラインをハイライト
 
 " 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+" accelerated-jkと干渉するので無効
 "nnoremap j gj
 "nnoremap k gk
 "nnoremap <down> gj
