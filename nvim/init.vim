@@ -44,12 +44,11 @@ if has('vim_starting') && dein#check_install()
 endif
 " }}}
 
-"#####################################
-"########## Python Settings ##########
-"#####################################
 
-" docstringは表示しない
-autocmd FileType python setlocal completeopt-=preview
+"----------------------------------------------------------
+" Python
+"----------------------------------------------------------
+autocmd FileType python setlocal completeopt-=preview " docstringは表示しない
 
 " Alt-iで自動整形(pep8準拠)
 function! Preserve(command)
@@ -78,82 +77,63 @@ endfunction
 
 autocmd FileType python nnoremap <A-i> :call Autopep8()<CR>
 
-"#######################################
-"##############基本設定#################
-"#######################################
-
-" 文字コード設定
+"----------------------------------------------------------
+" 文字
+"----------------------------------------------------------
 set encoding=utf-8
-set fileencodings=utf-8
-set fileformats=unix,dos,mac
+set fileencoding=utf-8 " 保存時の文字コード
+set fileencodings=utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
+set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
+set ambiwidth=double " □や○文字が崩れる問題を解決
 
-"OSのクリップボードを使う
-set clipboard=unnamed,unnamedplus
+"----------------------------------------------------------
+" ステータスライン
+"----------------------------------------------------------
+set laststatus=2 " ステータスラインを常に表示
+set showmode " 現在のモードを表示
+set showcmd " 打ったコマンドをステータスラインの下に表示
+"set ruler " ステータスラインの右側にカーソルの位置を表示する
 
-"行数表示
-set number
+"----------------------------------------------------------
+" コマンドモード
+"----------------------------------------------------------
+set wildmenu " コマンドモードの補完
+set history=200 " 保存するコマンド履歴の数
 
-"行番号の色
-highlight LineNr ctermfg=darkyellow
+"----------------------------------------------------------
+" タブ・インデント
+"----------------------------------------------------------
+"set expandtab " タブ入力を複数の空白入力に置き換える
+set tabstop=4 " 画面上でタブ文字が占める幅
+set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set autoindent " 改行時に前の行のインデントを継続する
+set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
+set shiftwidth=4 " smartindentで増減する幅
 
-"tabのインデント幅
-set tabstop=4
+"----------------------------------------------------------
+" 文字列検索
+"----------------------------------------------------------
+set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
+set ignorecase " 検索パターンに大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set hlsearch " 検索結果をハイライト
 
-"自動で挿入されるインデント幅
-set shiftwidth=4
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-"タブ入力を複数の空白入力に置き換える
-"set expandtab
+"----------------------------------------------------------
+" カーソル
+"----------------------------------------------------------
+"set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set number " 行番号を表示
+highlight LineNr ctermfg=lightgray "行番号の色
+set cursorline " カーソルラインをハイライト
 
-"ファイルごとにインデント設定ファイルを開く
-filetype indent on
-
-"対応する括弧を強調
-set showmatch
-
-":の履歴を保存
-set history=500
-
-"行頭、行末でカーソルを止めない
-"set whichwrap=b,s,h,l,<,>,[,]
-
-"Ctrl-iでコード整形
-function! s:format_file()
-  let view = winsaveview()
-  normal gg=G
-  silent call winrestview(view)
-endfunction
-nnoremap <C-i> :call <SID>format_file()<CR>
-
-" tagsジャンプの時に複数ある時は一覧表示                                        
-" F3で候補先を選択してジャンプ, F2で戻る
-nnoremap <F3> g<C-]>
-nnoremap <F2> <C-t>
-
-"9で行頭にカーソル移動
-"nnoremap 9 0
-
-"0で行末にカーソル移動
-"nnoremap 0 $
-
-"rでRedo
-"nnoremap r <C-r>
-
-" 行末の1文字先までカーソルを移動できるように
-"set virtualedit=onemore
-
-"入力中のコマンドを表示
-set showcmd
-
-"バックアップファイルを作らない
-set nobackup
-
-"スワップファイルを作らない
-set noswapfile
-
-"文字列検索に大文字小文字の区別を無効
-set ignorecase
-set smartcase
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+"nnoremap j gj
+"nnoremap k gk
+"nnoremap <down> gj
+"nnoremap <up> gk
 
 " 最後のカーソル位置を復元する
 if has("autocmd")
@@ -163,10 +143,50 @@ if has("autocmd")
         \ endif
 endif
 
-"Yで行をヤンク
-nnoremap Y y$
+" バックスペースキーの有効化
+"set backspace=indent,eol,start
+
+"nnoremap 9 0 "9で行頭にカーソル移動
+"nnoremap 0 $ "0で行末にカーソル移動
+"nnoremap r <C-r> "rでRedo
+"set virtualedit=onemore " 行末の1文字先までカーソルを移動できるように
+
+"----------------------------------------------------------
+" カッコ・タグの対応
+"----------------------------------------------------------
+set showmatch " 括弧の対応関係を一瞬表示する
+source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+
+" tagsジャンプの時に複数ある時は一覧表示                                        
+" F3で候補先を選択してジャンプ, F2で戻る
+nnoremap <F3> g<C-]>
+nnoremap <F2> <C-t>
+
+"----------------------------------------------------------
+" コピー・ペースト
+"----------------------------------------------------------
+set clipboard=unnamed,unnamedplus "OSのクリップボードを使う
+
+nnoremap Y y$ "Yで行をヤンク
 
 "削除時にヤンクしない
 nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D<Paste>
+
+"----------------------------------------------------------
+" ファイル保存
+"----------------------------------------------------------
+set nobackup "バックアップファイルを作らない
+set noswapfile "スワップファイルを作らない
+
+"----------------------------------------------------------
+" その他
+"----------------------------------------------------------
+"Ctrl-iでコード整形
+function! s:format_file()
+  let view = winsaveview()
+  normal gg=G
+  silent call winrestview(view)
+endfunction
+nnoremap <C-i> :call <SID>format_file()<CR>
