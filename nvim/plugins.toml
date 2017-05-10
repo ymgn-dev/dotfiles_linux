@@ -35,13 +35,14 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=0
 '''
 
+# C-pでNERDTree表示非表示切り替え
 # C-hで左のタブ, C-lで右のタブに移動
 # ファイル選択時, oでオープン, tで新しいタブでオープン
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 autocmd vimenter * NERDTree
-map <C-m> :NERDTreeToggle<CR>
+map <C-p> :NERDTreeToggle<CR>
 map <C-l> gt
 map <C-h> gT
 '''
