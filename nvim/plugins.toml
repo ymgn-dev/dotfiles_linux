@@ -35,6 +35,7 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=0
 '''
 
+# NERDTree, NERDTreeTabsToggle(タブ機能強化)の設定
 # C-pでNERDTree表示非表示切り替え
 # C-hで左のタブ, C-lで右のタブに移動
 # ファイル選択時, oでオープン, tで新しいタブでオープン
@@ -42,7 +43,15 @@ let g:indent_guides_guide_size=0
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 autocmd vimenter * NERDTree
-map <C-p> :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
 map <C-l> gt
 map <C-h> gT
+'''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+hook_add = '''
+map <C-p> <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
