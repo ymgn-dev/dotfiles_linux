@@ -88,8 +88,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias vim='nvim'
-alias :q='exit'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,9 +113,42 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Vim Settings
 export XDG_CONFIG_HOME=/home/yamagen/.config
+alias vim="nvim"
+alias :q="exit"
 
+# ROS Settings
 source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
+export OpenCV_DIR=/usr/share/OpenCV/
+
+# catkin_makeをどこでもできるようにする
+catkin_make_func() {
+path=$(cd $(dirname $0) && pwd)
+path_arr=(`echo $path | tr '/' ' '`)
+path_length=`expr ${#path_arr[*]} - 1`
+
+# catkin_makeを実行するパス
+make_path=""
+dir="build"
+
+for i in `seq 0 ${path_length}`
+do
+  path_arr[i]="/${path_arr[i]}"
+  make_path=$make_path${path_arr[i]}
+  cd $make_path
+  if [ -e $dir ]; then
+    if [ -d $dir ]; then
+      catkin_make
+      break
+    fi
+  fi
+done
+
+cd $path
+}
+
+alias cm=catkin_make_func
