@@ -1,12 +1,4 @@
 [[plugins]]
-repo = 'soramugi/auto-ctags.vim'
-hook_add = '''
-let g:auto_ctags = 1
-let g:auto_ctags_tags_args = '--append=yes --recurse=yes --extra=+f'
-'''
-on_ft = ['c', 'cpp']
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
