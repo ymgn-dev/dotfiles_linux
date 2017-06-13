@@ -1,3 +1,4 @@
 #!/bin/sh
-unlink /home/yamagen/.config/nvim
-unlink /home/yamagen/.bashrc
+unlink ${HOME}/.config/nvim
+unlink ${HOME}/.bashrc
+unlink /etc/inputrc
