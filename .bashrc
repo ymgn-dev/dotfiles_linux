@@ -115,7 +115,7 @@ fi
 
 # Vim Settings
 export XDG_CONFIG_HOME=/home/yamagen/.config
-alias vim="nvim"
+# alias vim="nvim"
 alias :q="exit"
 
 # Bash Settings
