@@ -9,8 +9,14 @@ syntax on
 set t_Co=256
 '''
 
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'ujihisa/neco-look'
+hook_add = '''
+let g:neocomplete#text_mode_filetypes = { "_" : 1 }
+'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
