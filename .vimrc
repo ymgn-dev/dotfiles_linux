@@ -59,38 +59,6 @@ endif
 
 
 "----------------------------------------------------------
-" Python:
-
-autocmd FileType python setlocal completeopt-=preview " Do not display docstring
-
-" Automatic formatting with Alt-i(Compliant with pep 8)
-function! Preserve(command)
-  " Save the last search.
-  let search = @/
-  " Save the current cursor position.
-  let cursor_position = getpos('.')
-  " Save the current window position.
-  normal! H
-  let window_position = getpos('.')
-  call setpos('.', cursor_position)
-  " Execute the command.
-  execute a:command
-  " Restore the last search.
-  let @/ = search
-  " Restore the previous window position.
-  call setpos('.', window_position)
-  normal! zt
-  " Restore the previous cursor position.
-  call setpos('.', cursor_position)
-endfunction
-
-function! Autopep8()
-  call Preserve(':silent %!autopep8 -')
-endfunction
-
-autocmd FileType python nnoremap <A-i> :call Autopep8()<CR>
-
-"----------------------------------------------------------
 " Character Code:
 
 set encoding=utf-8
@@ -98,6 +66,7 @@ set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
 set ambiwidth=double
+
 
 "----------------------------------------------------------
 " Status Line:
@@ -107,11 +76,13 @@ set showmode
 set showcmd
 "set ruler
 
+
 "----------------------------------------------------------
 " Command Mode:
 
 set wildmenu
 set history=200
+
 
 "----------------------------------------------------------
 " Tab Indent:
@@ -123,6 +94,7 @@ set softtabstop=4
 set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
 set shiftwidth=4 " smartindent Width
 
+
 "----------------------------------------------------------
 " String Search:
 
@@ -133,6 +105,7 @@ set hlsearch " Highlight search results
 
 " Toggle highlighting by pressing the ESC key twice
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
 
 "----------------------------------------------------------
 " Cursor:
@@ -165,6 +138,7 @@ set backspace=indent,eol,start
 "nnoremap r <C-r> "Redo with r
 "set virtualedit=onemore " Move the cursor to the end of the line one character ahead
 
+
 "----------------------------------------------------------
 " Parentheses Tags:
 
@@ -175,6 +149,7 @@ source $VIMRUNTIME/macros/matchit.vim " Extend "%" of Vim
 " Select a candidate destination in F3 and jump and return with F2
 nnoremap <F3> g<C-]>
 nnoremap <F2> <C-t>
+
 
 "----------------------------------------------------------
 " Copy Paste:
@@ -188,11 +163,13 @@ nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D<Paste>
 
+
 "----------------------------------------------------------
 " Save File:
 
 set nobackup " Do not create backup files
 set noswapfile " Do not create swap file
+
 
 "----------------------------------------------------------
 " Other:

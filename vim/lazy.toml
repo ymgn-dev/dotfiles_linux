@@ -7,10 +7,6 @@ let g:quickrun_config={'_': {'split': 'vertical'}}
 on_i = 1
 
 [[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_ft = ['python']
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
@@ -116,3 +112,14 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 '''
 on_i = 1
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+hook_add = '''
+autocmd FileType python setlocal completeopt-=preview " Do not display docstring
+'''
+on_ft = ['python']
+
+[[plugins]]
+repo = 'Seiya-Yamamoto/autopep8-vim'
+on_ft = ['python']
