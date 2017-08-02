@@ -16,12 +16,6 @@ repo = 'Shougo/denite.nvim'
 repo = 'cespare/vim-toml'
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {

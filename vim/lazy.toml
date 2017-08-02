@@ -11,6 +11,23 @@ repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = ['python']
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+
+[[plugins]]
 repo = 'Shougo/neocomplete.vim'
 hook_add = '''
 "----------------------------------------------------------
