@@ -167,7 +167,7 @@ let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
 
 " compile options
 let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++11'
+let g:clang_cpp_options = '-std=c++1y'
 '''
 on_ft = ['c', 'cpp']
 on_i = 1
