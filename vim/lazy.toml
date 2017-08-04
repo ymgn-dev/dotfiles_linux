@@ -189,8 +189,8 @@ hook_add = '''
 autocmd FileType python setlocal completeopt-=preview " Do not display docstring
 autocmd FileType python setlocal omnifunc=jedi#completions
 
-" let g:jedi#completions_enabled = 0
-" let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 
 let g:jedi#popup_select_first = 0
 let g:jedi#completions_command = "<C-N>"
