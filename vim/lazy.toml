@@ -115,17 +115,50 @@ endif
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
+" for jedi-vim, python completion settings
+if (&filetype=='python')
+	echo "python file open !!"
+	if !exists('g:neocomplete#force_omni_input_patterns')
+			let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	
+	let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+	let g:neocomplete#disable_auto_complete = 1 " disable auto complete
+	inoremap <expr><C-K> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
 endif
 
-" for jedi-vim, python omni completion
-let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+" --------debug---------------
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"	let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"let g:neocomplete#disable_auto_complete = 1 " disable auto complete
+"inoremap <expr><C-n> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
+" ----------------------------
+
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 " let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 '''
+on_i = 1
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+hook_add = '''
+autocmd FileType python setlocal completeopt-=preview " Do not display docstring
+autocmd FileType python setlocal omnifunc=jedi#completions
+
+" Invalidate jedi-vim and set completion to neocomplete
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+" let g:jedi#popup_select_first = 0
+" let g:jedi#completions_command = "<C-k>"
+" let g:jedi#popup_on_dot = 0
+'''
+on_ft = ['python']
 on_i = 1
 
 [[plugins]]
@@ -181,22 +214,6 @@ let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++1y'
 '''
 on_ft = ['c', 'cpp']
-on_i = 1
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-hook_add = '''
-autocmd FileType python setlocal completeopt-=preview " Do not display docstring
-autocmd FileType python setlocal omnifunc=jedi#completions
-
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_command = "<C-N>"
-let g:jedi#popup_on_dot = 0
-'''
-on_ft = ['python']
 on_i = 1
 
 [[plugins]]
