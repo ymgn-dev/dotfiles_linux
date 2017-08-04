@@ -43,12 +43,19 @@ repo = 'Shougo/neocomplete.vim'
 hook_add = '''
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
+
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
+
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+"If completion time is higher than it, neocomplete will skip auto completion.
+" default = '0.3'
+" let g:neocomplete#skip_auto_completion_time = '0.3'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
@@ -96,20 +103,28 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" for jedi-vim, python omni completion
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 '''
 on_i = 1
 
@@ -161,10 +176,6 @@ endfunction
 let g:clang_exec = s:get_latest_clang('/usr/bin')
 let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
 
-" print debug
-"echo g:clang_exec
-"echo g:clang_format_exec
-
 " compile options
 let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++1y'
@@ -176,8 +187,16 @@ on_i = 1
 repo = 'davidhalter/jedi-vim'
 hook_add = '''
 autocmd FileType python setlocal completeopt-=preview " Do not display docstring
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_command = "<C-N>"
+let g:jedi#popup_on_dot = 0
 '''
 on_ft = ['python']
+on_i = 1
 
 [[plugins]]
 repo = 'Seiya-Yamamoto/autopep8-vim'
