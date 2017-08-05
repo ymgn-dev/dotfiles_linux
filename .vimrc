@@ -174,10 +174,12 @@ set noswapfile " Do not create swap file
 "----------------------------------------------------------
 " Other:
 
+filetype plugin indent on
+
 " Code shaping with Ctrl-i
 function! s:format_file()
-  let view = winsaveview()
-  normal gg=G
-  silent call winrestview(view)
+	let view = winsaveview()
+	normal gg=G
+	silent call winrestview(view)
 endfunction
 nnoremap <C-i> :call <SID>format_file()<CR>

@@ -4,8 +4,8 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
-colorscheme molokai
 syntax on
+colorscheme molokai
 set t_Co=256
 '''
 
