@@ -26,7 +26,7 @@ if &runtimepath !~# '/dein.vim'
         call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
     endif
 
-    " dein.vim をプラグインとして読み込む
+    " Load Dein.vim
     execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
@@ -55,65 +55,70 @@ endif
 
 
 "----------------------------------------------------------
-" 文字
-"----------------------------------------------------------
+" Character Code:
+
 set encoding=utf-8
-set fileencoding=utf-8 " 保存時の文字コード
-set fileencodings=utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
-set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
-set ambiwidth=double " □や○文字が崩れる問題を解決
+set fileencoding=utf-8
+set fileencodings=utf-8,euc-jp,cp932
+set fileformats=unix,dos,mac
+set ambiwidth=double
+
 
 "----------------------------------------------------------
-" ステータスライン
-"----------------------------------------------------------
-set laststatus=2 " ステータスラインを常に表示
-set showmode " 現在のモードを表示
-set showcmd " 打ったコマンドをステータスラインの下に表示
-"set ruler " ステータスラインの右側にカーソルの位置を表示する
+" Status Line:
+
+set laststatus=2
+set showmode
+set showcmd
+"set ruler
+
 
 "----------------------------------------------------------
-" コマンドモード
-"----------------------------------------------------------
-set wildmenu " コマンドモードの補完
-set history=200 " 保存するコマンド履歴の数
+" Command Mode:
+
+set wildmenu
+set history=200
+
 
 "----------------------------------------------------------
-" タブ・インデント
-"----------------------------------------------------------
-"set expandtab " タブ入力を複数の空白入力に置き換える
-set tabstop=4 " 画面上でタブ文字が占める幅
-set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-"set autoindent " 改行時に前の行のインデントを継続する
-set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
-set shiftwidth=4 " smartindentで増減する幅
+" Tab Indent:
+
+"set expandtab " Replace tab input with multiple blank inputs
+set tabstop=4 " Tab Width
+set softtabstop=4
+"set autoindent
+set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
+set shiftwidth=4 " smartindent Width
+
 
 "----------------------------------------------------------
-" 文字列検索
-"----------------------------------------------------------
-set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
-set ignorecase " 検索パターンに大文字小文字を区別しない
-set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
-set hlsearch " 検索結果をハイライト
+" String Search:
 
-" ESCキー2度押しでハイライトの切り替え
+set incsearch " Incremental search. Perform a search for each character entry
+set ignorecase " Searching without distinguishing uppercase and lowercase letters
+set smartcase " If the search pattern contains uppercase letters, distinguish case
+set hlsearch " Highlight search results
+
+" Toggle highlighting by pressing the ESC key twice
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-"----------------------------------------------------------
-" カーソル
-"----------------------------------------------------------
-"set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-set number " 行番号を表示
-highlight LineNr ctermfg=lightgray "行番号の色
-set cursorline " カーソルラインをハイライト
 
-" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
-" accelerated-jkと干渉するので無効
+"----------------------------------------------------------
+" Cursor:
+
+"set whichwrap=b,s,h,l,<,>,[,],~ " Enable movement from the end of the line to the beginning of the next line
+set number " Show line number
+highlight LineNr ctermfg=lightgray " Line number color
+set cursorline " Highlight the cursor line
+
+" If the line is displayed by wrapping, move the cursor by display line instead of line by line
+" Because it interferes with accelerated-jk, it is invalid
 "nnoremap j gj
 "nnoremap k gk
 "nnoremap <down> gj
 "nnoremap <up> gk
 
-" 最後のカーソル位置を復元する
+" Restore last cursor position
 if has("autocmd")
   autocmd BufReadPost *
         \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -121,50 +126,57 @@ if has("autocmd")
         \ endif
 endif
 
-" バックスペースキーの有効化
-"set backspace=indent,eol,start
+" Activate backspace key
+set backspace=indent,eol,start
 
-"nnoremap 9 0 "9で行頭にカーソル移動
-"nnoremap 0 $ "0で行末にカーソル移動
-"nnoremap r <C-r> "rでRedo
-"set virtualedit=onemore " 行末の1文字先までカーソルを移動できるように
+"nnoremap 9 0 " Move the cursor to the beginning of the line with 9
+"nnoremap 0 $ " Move the cursor to the end of the line with 0
+"nnoremap r <C-r> "Redo with r
+"set virtualedit=onemore " Move the cursor to the end of the line one character ahead
+
 
 "----------------------------------------------------------
-" カッコ・タグの対応
-"----------------------------------------------------------
-set showmatch " 括弧の対応関係を一瞬表示する
-source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+" Parentheses Tags:
 
-" tagsジャンプの時に複数ある時は一覧表示                                        
-" F3で候補先を選択してジャンプ, F2で戻る
+set showmatch " Display the correspondence of parentheses for a moment
+source $VIMRUNTIME/macros/matchit.vim " Extend "%" of Vim
+
+" Display list when there are multiple candidates at jump
+" Select a candidate destination in F3 and jump and return with F2
 nnoremap <F3> g<C-]>
 nnoremap <F2> <C-t>
 
-"----------------------------------------------------------
-" コピー・ペースト
-"----------------------------------------------------------
-set clipboard=unnamed,unnamedplus "OSのクリップボードを使う
 
-nnoremap Y y$ "Yで行をヤンク
+"----------------------------------------------------------
+" Copy Paste:
 
-"削除時にヤンクしない
+set clipboard=unnamed,unnamedplus " Use OS Clipboard
+
+nnoremap Y y$ " Yank the line with Y
+
+" Do not yank when deleting
 nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D<Paste>
 
-"----------------------------------------------------------
-" ファイル保存
-"----------------------------------------------------------
-set nobackup "バックアップファイルを作らない
-set noswapfile "スワップファイルを作らない
 
 "----------------------------------------------------------
-" その他
+" Save File:
+
+set nobackup " Do not create backup files
+set noswapfile " Do not create swap file
+
+
 "----------------------------------------------------------
-"Ctrl-iでコード整形
+" Other:
+
+filetype plugin indent on
+
+" Code format with Ctrl-i
 function! s:format_file()
-  let view = winsaveview()
-  normal gg=G
-  silent call winrestview(view)
+	let view = winsaveview()
+	normal gg=G
+	silent call winrestview(view)
 endfunction
+
 nnoremap <C-i> :call <SID>format_file()<CR>
