@@ -10,7 +10,13 @@ set t_Co=256
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'ujihisa/neco-look'
+hook_add = '''
+let g:neocomplete#text_mode_filetypes = { "_" : 1 }
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
