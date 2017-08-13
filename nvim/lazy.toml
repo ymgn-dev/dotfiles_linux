@@ -75,6 +75,10 @@ hook_post_update = '''
 on_i = 1
 
 [[plugins]]
+repo = 'rbtnn/vimconsole.vim'
+on_i = 1
+
+[[plugins]]
 repo = 'lervag/vimtex'
 hook_source = '''
 	let g:vimtex_latexmk_options = '-pdfdvi'
