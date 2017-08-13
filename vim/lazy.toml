@@ -130,6 +130,8 @@ hook_add = '''
 autocmd FileType python setlocal completeopt-=preview " Do not display docstring
 autocmd FileType python setlocal omnifunc=jedi#completions " use jedi omnifunc
 
+let g:jedi#force_py_version = 3 " force to use python3
+
 if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
