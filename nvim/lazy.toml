@@ -74,14 +74,6 @@ hook_post_update = '''
 on_i = 1
 
 [[plugins]]
-repo = 'Seiya-Yamamoto/autopep8-vim'
-hook_add = '''
-	" Auto format with Ctrl-i
-	autocmd FileType python nnoremap <C-i> :call Autopep8()<CR>
-'''
-on_ft = ['python']
-
-[[plugins]]
 repo = 'lervag/vimtex'
 hook_source = '''
 	let g:vimtex_latexmk_options = '-pdfdvi'

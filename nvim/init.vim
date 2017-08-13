@@ -171,6 +171,7 @@ set noswapfile " Do not create swap file
 " Other:
 
 filetype plugin indent on
+autocmd FileType python setlocal equalprg=autopep8\ - " python code format
 
 " Code format with Ctrl-i
 function! s:format_file()
