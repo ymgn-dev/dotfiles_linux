@@ -175,10 +175,6 @@ set noswapfile " Do not create swap file
 " Other:
 
 filetype plugin indent on
-
-" add filetype cython
-au BufRead,BufNewFile *.pxd,*.pxi,*.pyx set filetype=cython
-
 autocmd FileType python setlocal equalprg=autopep8\ - " python code format
 
 " Code shaping with Ctrl-i
