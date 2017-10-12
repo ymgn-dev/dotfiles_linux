@@ -61,7 +61,7 @@ depends = ['deoplete.nvim']
 repo = 'zchee/deoplete-jedi'
 hook_add = '''
 	autocmd FileType python setlocal completeopt-=preview " Do not display docstring
-	let g:deoplete#sources#jedi#extra_path = "/usr/local/lib/python3.5/dist-packages/"
+	let g:deoplete#sources#jedi#extra_path = "/home/yamagen/.local/lib/python3.5/site-packages"
 '''
 on_ft = ['python']
 depends = ['deoplete.nvim']
