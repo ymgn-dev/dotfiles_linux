@@ -19,19 +19,19 @@ let s:dein_cache_dir = g:cache_home . '/dein'
 
 " reset augroup
 augroup MyAutoCmd
-    autocmd!
+	autocmd!
 augroup END
 
 if &runtimepath !~# '/dein.vim'
-    let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+	let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
-    " Auto Download
-    if !isdirectory(s:dein_repo_dir)
-        call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-    endif
+	" Auto Download
+	if !isdirectory(s:dein_repo_dir)
+		call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+	endif
 
-    " Read dein.vim
-    execute 'set runtimepath^=' . s:dein_repo_dir
+	" Read dein.vim
+	execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
 " dein.vim settings
@@ -41,19 +41,19 @@ let g:dein#install_message_type = 'none'
 let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
-    call dein#begin(s:dein_cache_dir)
+	call dein#begin(s:dein_cache_dir)
 
-    let s:toml_dir = g:config_home . '/.vim'
+	let s:toml_dir = g:config_home . '/.vim'
 
-    call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+	call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
+	call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
 
-    call dein#end()
-    call dein#save_state()
+	call dein#end()
+	call dein#save_state()
 endif
 
 if has('vim_starting') && dein#check_install()
-    call dein#install()
+	call dein#install()
 endif
 " }}}
 
@@ -124,10 +124,10 @@ set cursorline " Highlight the cursor line
 
 " Restore last cursor position
 if has("autocmd")
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        \   exe "normal! g'\"" |
-        \ endif
+	autocmd BufReadPost *
+				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+				\   exe "normal! g'\"" |
+				\ endif
 endif
 
 " Activate backspace key
@@ -175,6 +175,10 @@ set noswapfile " Do not create swap file
 " Other:
 
 filetype plugin indent on
+
+" add filetype cython
+au BufRead,BufNewFile *.pxd,*.pxi,*.pyx set filetype=cython
+
 autocmd FileType python setlocal equalprg=autopep8\ - " python code format
 
 " Code shaping with Ctrl-i
