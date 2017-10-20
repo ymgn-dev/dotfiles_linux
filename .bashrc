@@ -117,7 +117,7 @@ fi
 export XDG_CONFIG_HOME=/home/yamagen/.config
 # alias vim="nvim"
 alias :q="exit"
-alise ;q="exit"
+alias ;q="exit"
 
 # Bash Settings
 bind 'set show-all-if-ambiguous on'
