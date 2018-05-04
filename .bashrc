@@ -124,45 +124,9 @@ bind 'TAB:menu-complete'
 shopt -s autocd
 export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.rcssserver:.ros:.ssh:.swt:.vscode
 
-# ROS Settings
-ros(){
-	source /opt/ros/indigo/setup.bash
-	source ~/catkin_ws/devel/setup.bash
-	export ROS_MASTER_URI=http://localhost:11311
-	export ROS_HOSTNAME=localhost
-	export OpenCV_DIR=/usr/share/OpenCV/
-}
-
-# catkin_makeをどこでもできるようにする
-catkin_make_func() {
-	path=$(cd $(dirname $0) && pwd)
-	path_arr=(`echo $path | tr '/' ' '`)
-	path_length=`expr ${#path_arr[*]} - 1`
-
-	# catkin_makeを実行するパス
-	make_path=""
-	dir="build"
-
-	for i in `seq 0 ${path_length}`
-	do
-		path_arr[i]="/${path_arr[i]}"
-		make_path=$make_path${path_arr[i]}
-		cd $make_path
-		if [ -e $dir ]; then
-			if [ -d $dir ]; then
-				catkin_make
-				break
-			fi
-		fi
-	done
-	cd $path
-}
-
-alias cm=catkin_make_func
-
 # CUDA and cuDNN
-export PATH=/usr/local/cuda-8.0/bin:${PATH}
-export CUDA_PATH=/usr/local/cuda-8.0
+export PATH=/usr/local/cuda/bin:${PATH}
+export CUDA_PATH=/usr/local/cuda
 export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
