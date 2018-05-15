@@ -130,3 +130,11 @@ export CUDA_PATH=/usr/local/cuda
 export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
+
+# added by Anaconda3 installer
+export PATH="/home/yamagen/.anaconda3/bin:$PATH"
+
+# Bazel path
+source $HOME/.bazel/bin/bazel-complete.bash
+export PATH="$PATH:$HOME/bin"
+
