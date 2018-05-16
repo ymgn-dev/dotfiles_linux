@@ -125,8 +125,9 @@ shopt -s autocd
 export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.rcssserver:.ros:.ssh:.swt:.vscode
 
 # CUDA and cuDNN
-export PATH=/usr/local/cuda/bin:${PATH}
 export CUDA_PATH=/usr/local/cuda
+export PATH=$CUDA_PATH/bin:${PATH}
+export CUDA_HOME=/usr/local/cuda
 export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
