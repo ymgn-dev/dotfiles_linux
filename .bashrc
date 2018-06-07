@@ -122,7 +122,7 @@ alias :q="exit"
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 shopt -s autocd
-export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.rcssserver:.ros:.ssh:.swt:.vscode
+export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.ssh:.swt:.vscode
 
 # CUDA and cuDNN
 export CUDA_PATH=/usr/local/cuda
