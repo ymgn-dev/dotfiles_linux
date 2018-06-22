@@ -84,8 +84,8 @@ set history=200
 " Tab Indent:
 
 "set expandtab " Replace tab input with multiple blank inputs
+"set softtabstop=4
 set tabstop=4 " Tab Width
-set softtabstop=4
 "set autoindent
 set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
 set shiftwidth=4 " smartindent Width
@@ -152,12 +152,12 @@ nnoremap <F2> <C-t>
 
 set clipboard=unnamed,unnamedplus " Use OS Clipboard
 
-nnoremap Y y$ " Yank the line with Y
+" nnoremap Y y$ " Yank the line with Y
 
 " Do not yank when deleting
-nnoremap x "_x
-nnoremap d "_d
-nnoremap D "_D<Paste>
+" nnoremap x "_x
+" nnoremap d "_d
+" nnoremap D "_D<Paste>
 
 
 "----------------------------------------------------------
@@ -180,4 +180,4 @@ function! s:format_file()
 	silent call winrestview(view)
 endfunction
 
-nnoremap <C-i> :call <SID>format_file()<CR>
+nnoremap <C-S-i> :call <SID>format_file()<CR>
