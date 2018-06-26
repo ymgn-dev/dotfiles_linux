@@ -6,6 +6,7 @@
 " __/  / /      \ \__\ \__\ \__\    \ \__\ \__\ \__\ \_______\ \_______\ \__\\ \__\
 "|\___/ /        \|__|\|__|\|__|     \|__|\|__|\|__|\|_______|\|_______|\|__| \|__|
 "\|___|/                                                                           
+"
 
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
@@ -61,7 +62,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
-set ambiwidth=double
+set ambiwidth=double  "Display double-width symbols properly
 
 
 "----------------------------------------------------------
@@ -84,11 +85,14 @@ set history=200
 " Tab Indent:
 
 "set expandtab " Replace tab input with multiple blank inputs
-"set softtabstop=4
-set tabstop=4 " Tab Width
-"set autoindent
+"set noexpandtab " Disable expandtab
+
+set autoindent
 set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
+
+set tabstop=4 " Tab Width
 set shiftwidth=4 " smartindent Width
+set softtabstop=0
 
 
 "----------------------------------------------------------
@@ -170,8 +174,8 @@ set noswapfile " Do not create swap file
 "----------------------------------------------------------
 " Other:
 
-filetype plugin indent on
-autocmd FileType python setlocal equalprg=autopep8\ - " python code format
+"filetype plugin indent on
+" autocmd FileType python setlocal equalprg=autopep8\ - " python code format
 
 " Code format with Ctrl-i
 function! s:format_file()

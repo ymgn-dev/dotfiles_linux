@@ -12,8 +12,8 @@ hook_source = '''
 	let g:deoplete#max_list = 10000
 	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 	inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+		\ neosnippet#expandable_or_jumpable() ?
+		\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
 
@@ -62,8 +62,8 @@ depends = ['deoplete.nvim']
 repo = 'zchee/deoplete-jedi'
 hook_add = '''
 	autocmd FileType python setlocal completeopt-=preview " Do not display docstring
-	let g:deoplete#sources#jedi#python_path = "/home/yamagen/.anaconda3/envs/chainer/bin/python"
-	let g:deoplete#sources#jedi#extra_path = "/home/yamagen/.anaconda3/envs/chainer/lib/python3.6/site-packages"
+	" let g:deoplete#sources#jedi#python_path = "/home/yamagen/.anaconda3/envs/chainer/bin/python"
+	" let g:deoplete#sources#jedi#extra_path = "/home/yamagen/.anaconda3/envs/chainer/lib/python3.6/site-packages"
 '''
 on_ft = ['python']
 depends = ['deoplete.nvim']
