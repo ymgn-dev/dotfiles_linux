@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
@@ -9,20 +10,25 @@ colorscheme molokai
 set t_Co=256
 '''
 
+
 [[plugins]]
 repo = 'ujihisa/neco-look'
 hook_add = '''
 let g:neocomplete#text_mode_filetypes = { "_" : 1 }
 '''
 
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
+
 [[plugins]]
 repo = 'cespare/vim-toml'
+
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -35,6 +41,7 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=0
 '''
 
+
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
@@ -46,11 +53,13 @@ nmap <C-n> <Plug>AirlineSelectPrevTab
 nmap <C-p> <Plug>AirlineSelectNextTab
 '''
 
+
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
 let g:airline_theme = 'murmur'
 '''
+
 
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
