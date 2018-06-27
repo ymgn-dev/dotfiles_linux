@@ -143,16 +143,9 @@ on_ft = ['c', 'cpp', 'cmake']
 repo = 'zchee/deoplete-jedi'
 hook_add = '''
 	autocmd FileType python setlocal completeopt-=preview " Do not display docstring
-	" let g:deoplete#sources#jedi#python_path = "/home/yamagen/.anaconda3/envs/chainer/bin/python"
-	" let g:deoplete#sources#jedi#extra_path = "/home/yamagen/.anaconda3/envs/chainer/lib/python3.6/site-packages"
 '''
 on_ft = ['python']
 depends = ['deoplete.nvim']
-
-
-# [[plugins]]
-# repo = 'Vimjas/vim-python-pep8-indent'
-# on_ft = ['python']
 
 
 #------------------------------------------------------------------------------------------------------------
