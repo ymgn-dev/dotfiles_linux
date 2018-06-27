@@ -69,9 +69,8 @@ on_i = 1
 # Common:
 
 
-# pip<version> install pylint
 # python<version> -m pip install flake8
-# pip<version> install --upgrade autopep8
+# pip<version> install autopep8
 # sudo apt install clang-format
 [[plugins]]
 repo = 'w0rp/ale'
