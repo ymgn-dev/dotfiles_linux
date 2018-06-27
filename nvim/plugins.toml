@@ -45,6 +45,7 @@ let g:indent_guides_guide_size=0
 # git clone https://github.com/powerline/fonts.git --depth=1
 # cd fonts
 # ./install.sh
+# Use : Source Code Pro for Powerline semibold (size:11)
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
