@@ -169,8 +169,3 @@ set clipboard=unnamed,unnamedplus " Use OS Clipboard
 
 set nobackup " Do not create backup files
 set noswapfile " Do not create swap file
-
-
-"----------------------------------------------------------
-" Other:
-
