@@ -68,13 +68,24 @@ repo = 'w0rp/ale'
 hook_add = '''
 " Set this variable to 1 to fix files when you save them.
 "let g:ale_fix_on_save = 1
+
 " Enable completion where available.
 "let g:ale_completion_enabled = 1
+
 " Always show colmun
 let g:ale_sign_column_always = 1
+
+" Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
+
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '!!'
+
+" Disabling highlighting
+let g:ale_set_highlights = 0
+
+" Highlight color
+"highlight ALEWarning ctermbg=DarkMagenta
 '''
 on_ft = ['c', 'cpp','cmake', 'python']
 
