@@ -32,7 +32,7 @@ hook_source = '''
 	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 	smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 	xmap <C-k>     <Plug>(neosnippet_expand_target)
-
+	
 	" SuperTab like snippets behavior.
 	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -42,7 +42,7 @@ hook_source = '''
 	" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
+	
 	" For conceal markers.
 	if has('conceal')
 	  set conceallevel=2 concealcursor=niv
@@ -61,35 +61,41 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
+	" Fix Python files with autopep8 and yapf.
+	let g:ale_fixers = {
+		\'python': ['isort', 'autopep8', 'yapf'],
+	\}
+	
+	" Set this variable to 1 to fix files when you save them.
+	autocmd FileType python let g:ale_fix_on_save=1
+	
 	" Always show colmun
 	let g:ale_sign_column_always = 1
-
+	
 	" Lint delay time(default : 200)
-	let g:ale_lint_delay = 100
-
-	" Set this variable to 1 to fix files when you save them.
-	" let g:ale_fix_on_save = 1
-
-	" Set this variable to 1 to enable completion where available.
-	" let g:ale_completion_enabled = 1
-
+	" let g:ale_lint_delay = 100
+	
 	" Set this. Airline will handle the rest.
 	let g:airline#extensions#ale#enabled = 1
-
+	
 	" Change the signs ale uses
 	let g:ale_sign_error = '>>'
 	let g:ale_sign_warning = '!!'
-
+	
 	" Disabling highlighting
 	let g:ale_set_highlights = 0
-
+	
 	" Highlight color
 	"highlight ALEWarning ctermbg=DarkMagenta
-
+	
 	" Change echo messages
-	let g:ale_echo_msg_error_str = 'Error'
-	let g:ale_echo_msg_warning_str = 'Warning'
-	let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+	" let g:ale_echo_msg_error_str = 'Error'
+	" let g:ale_echo_msg_warning_str = 'Warning'
+	" let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+
+	" Navigate between errors quickly(Ctrl+j and Ctrl+k)
+	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+	nmap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
 on_ft = ['c', 'cpp','cmake', 'python']
 
@@ -128,18 +134,18 @@ hook_add = '''
 	\}
 
 	" map to <Leader>cf in C++ code
-	autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-	autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-
+	" autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+	" autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+	
 	" if you install vim-operator-user
 	autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-
+	
 	" Toggle auto formatting:
 	nmap <Leader>C :ClangFormatAutoToggle<CR>	
-
+	
 	" Automatically format every time saving a file.
 	let g:clang_format#auto_format = 1
-
+	
 	" Automatically format every time leaving insert mode.
 	let g:clang_format#auto_format_on_insert_leave = 1
 '''

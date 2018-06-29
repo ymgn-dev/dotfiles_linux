@@ -39,12 +39,12 @@ let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
 	call dein#begin(s:dein_cache_dir)
-
+	
 	let s:toml_dir = g:config_home . '/nvim'
-
+	
 	call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
 	call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-
+	
 	call dein#end()
 	call dein#save_state()
 endif
@@ -125,9 +125,9 @@ set cursorline " Highlight the cursor line
 " Restore last cursor position
 if has("autocmd")
   autocmd BufReadPost *
-		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-		\	exe "normal! g'\"" |
-		\ endif
+	\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+	\	exe "normal! g'\"" |
+	\ endif
 endif
 
 " Activate backspace key
