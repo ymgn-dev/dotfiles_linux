@@ -113,8 +113,10 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+
 # Vim Settings
 export XDG_CONFIG_HOME=$HOME/.config
+
 # alias vim="nvim"
 alias :q="exit"
 
@@ -131,5 +133,3 @@ export CUDA_HOME=/usr/local/cuda
 export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
-
-# LANG=C

@@ -69,8 +69,8 @@ hook_add = '''
 	" Automatically format every time leaving insert mode.
 	function! s:pyformat()
 		ALEFix
-		" execute "set noexpandtab"
-		" execute "retab!"
+		" set noexpandtab
+		" retab!
 	endfunction
 	autocmd FileType python
 		\ autocmd InsertLeave * call s:pyformat()
