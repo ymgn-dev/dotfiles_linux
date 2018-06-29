@@ -56,7 +56,7 @@ depends = ['neosnippet-snippets']
 #------------------------------------------------------------------------------------------------------------
 # Common:
 
-# pip<version> install autopep8, flake8, yapf
+# pip<version> install autopep8, flake8, yapf, isort
 # sudo apt install clang-format
 [[plugins]]
 repo = 'w0rp/ale'
