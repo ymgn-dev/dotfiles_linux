@@ -1,7 +1,6 @@
 #------------------------------------------------------------------------------------------------------------
 # Plugin manager:
 
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -9,27 +8,24 @@ repo = 'Shougo/dein.vim'
 #------------------------------------------------------------------------------------------------------------
 # Appearance:
 
-
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
-syntax on
-colorscheme molokai
-set t_Co=256
+	syntax on
+	colorscheme molokai
+	set t_Co=256
 '''
-
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	 ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=237
-let g:indent_guides_start_level=1
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=0
+	let g:indent_guides_auto_colors=0
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	 ctermbg=235
+	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=237
+	let g:indent_guides_start_level=1
+	let g:indent_guides_enable_on_vim_startup=1
+	let g:indent_guides_guide_size=0
 '''
-
 
 # git clone https://github.com/powerline/fonts.git --depth=1
 # cd fonts
@@ -38,32 +34,29 @@ let g:indent_guides_guide_size=0
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-nmap <C-n> <Plug>AirlineSelectPrevTab
-nmap <C-p> <Plug>AirlineSelectNextTab
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#left_sep = ' '
+	let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#formatter = 'default'
+	nmap <C-n> <Plug>AirlineSelectPrevTab
+	nmap <C-p> <Plug>AirlineSelectNextTab
 '''
-
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-let g:airline_theme = 'murmur'
+	let g:airline_theme = 'murmur'
 '''
 
 
 #------------------------------------------------------------------------------------------------------------
 # Completion, Syntax:
 
-
 [[plugins]]
 repo = 'ujihisa/neco-look'
 hook_add = '''
-let g:neocomplete#text_mode_filetypes = { "_" : 1 }
+	let g:neocomplete#text_mode_filetypes = { "_" : 1 }
 '''
-
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -72,18 +65,15 @@ repo = 'cespare/vim-toml'
 #------------------------------------------------------------------------------------------------------------
 # Others:
 
-
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
 hook_add = '''
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+	nmap j <Plug>(accelerated_jk_gj)
+	nmap k <Plug>(accelerated_jk_gk)
 '''

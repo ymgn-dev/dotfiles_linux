@@ -1,7 +1,6 @@
 #------------------------------------------------------------------------------------------------------------
 # Insert mode, Visual mode:
 
-
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
@@ -21,35 +20,33 @@ hook_source = '''
 '''
 on_i = 1
 
-
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
-
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+	" Plugin key-mappings.
+	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	" SuperTab like snippets behavior.
+	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	"imap <expr><TAB>
+	" \ pumvisible() ? "\<C-n>" :
+	" \ neosnippet#expandable_or_jumpable() ?
+	" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+	" For conceal markers.
+	if has('conceal')
+	  set conceallevel=2 concealcursor=niv
+	endif
 '''
 on_i  = 1
 on_ft = ['snippet']
@@ -59,36 +56,40 @@ depends = ['neosnippet-snippets']
 #------------------------------------------------------------------------------------------------------------
 # Common:
 
-
-# python<version> -m pip install flake8
-# pip<version> install autopep8
+# pip<version> install autopep8, flake8, yapf
 # sudo apt install clang-format
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-let g:ale_fixers = {
-	\ 'python': ['autopep8'],
-	\ }
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+	" Always show colmun
+	let g:ale_sign_column_always = 1
 
-" Enable completion where available.
-let g:ale_completion_enabled = 1
+	" Lint delay time(default : 200)
+	let g:ale_lint_delay = 100
 
-" Always show colmun
-let g:ale_sign_column_always = 1
+	" Set this variable to 1 to fix files when you save them.
+	" let g:ale_fix_on_save = 1
 
-" Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
+	" Set this variable to 1 to enable completion where available.
+	" let g:ale_completion_enabled = 1
 
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '!!'
+	" Set this. Airline will handle the rest.
+	let g:airline#extensions#ale#enabled = 1
 
-" Disabling highlighting
-let g:ale_set_highlights = 0
+	" Change the signs ale uses
+	let g:ale_sign_error = '>>'
+	let g:ale_sign_warning = '!!'
 
-" Highlight color
-"highlight ALEWarning ctermbg=DarkMagenta
+	" Disabling highlighting
+	let g:ale_set_highlights = 0
+
+	" Highlight color
+	"highlight ALEWarning ctermbg=DarkMagenta
+
+	" Change echo messages
+	let g:ale_echo_msg_error_str = 'Error'
+	let g:ale_echo_msg_warning_str = 'Warning'
+	let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 '''
 on_ft = ['c', 'cpp','cmake', 'python']
 
@@ -108,11 +109,9 @@ hook_source = '''
 on_ft = ['c', 'cpp','cmake']
 depends = ['deoplete.nvim']
 
-
 [[plugins]]
 repo = 'kana/vim-operator-user'
 on_ft = ['c', 'cpp', 'cmake']
-
 
 # sudo apt install clang-format
 [[plugins]]
@@ -120,20 +119,28 @@ repo = 'rhysd/vim-clang-format'
 hook_add = '''
 	let g:clang_format#code_style = "LLVM"
 	let g:clang_format#style_options = {
-			\ "AccessModifierOffset" : -4,
-			\ "AllowShortIfStatementsOnASingleLine" : "true",
-			\ "AlwaysBreakTemplateDeclarations" : "true",
-			\ "TabWidth" : 4,
-			\ "UseTab" : "Always",
-			\ "Standard" : "C++11"}
+		\ "AccessModifierOffset" : -4,
+		\ "AllowShortIfStatementsOnASingleLine" : "true",
+		\ "AlwaysBreakTemplateDeclarations" : "true",
+		\ "TabWidth" : 4,
+		\ "UseTab" : "Always",
+		\ "Standard" : "C++11"
+	\}
+
 	" map to <Leader>cf in C++ code
 	autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 	autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
 	" if you install vim-operator-user
 	autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+
 	" Toggle auto formatting:
 	nmap <Leader>C :ClangFormatAutoToggle<CR>	
+
+	" Automatically format every time saving a file.
 	let g:clang_format#auto_format = 1
+
+	" Automatically format every time leaving insert mode.
 	let g:clang_format#auto_format_on_insert_leave = 1
 '''
 on_ft = ['c', 'cpp', 'cmake']
@@ -142,11 +149,11 @@ on_ft = ['c', 'cpp', 'cmake']
 #------------------------------------------------------------------------------------------------------------
 # Python:
 
-
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 hook_add = '''
-	autocmd FileType python setlocal completeopt-=preview " Do not display docstring
+	" Do not display docstring
+	autocmd FileType python setlocal completeopt-=preview
 '''
 on_ft = ['python']
 depends = ['deoplete.nvim']
@@ -154,7 +161,6 @@ depends = ['deoplete.nvim']
 
 #------------------------------------------------------------------------------------------------------------
 # Tex:
-
 
 [[plugins]]
 repo = 'lervag/vimtex'

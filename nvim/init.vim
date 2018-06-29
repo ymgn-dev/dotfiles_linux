@@ -1,11 +1,11 @@
-"  ___    ___ ________  _____ ______   ________  ________  _______   ________      
-" |\  \  /  /|\   __  \|\   _ \  _   \|\   __  \|\   ____\|\  ___ \ |\   ___  \    
-" \ \  \/  / | \  \|\  \ \  \\\__\ \  \ \  \|\  \ \  \___|\ \   __/|\ \  \\ \  \   
-"  \ \    / / \ \   __  \ \  \\|__| \  \ \   __  \ \  \  __\ \  \_|/_\ \  \\ \  \  
-"   \/  /  /   \ \  \ \  \ \  \    \ \  \ \  \ \  \ \  \|\  \ \  \_|\ \ \  \\ \  \ 
-" __/  / /      \ \__\ \__\ \__\    \ \__\ \__\ \__\ \_______\ \_______\ \__\\ \__\
-"|\___/ /        \|__|\|__|\|__|     \|__|\|__|\|__|\|_______|\|_______|\|__| \|__|
-"\|___|/                                                                           
+"  ___	  ___ ________	_____ ______   ________  ________  _______	 ________	   
+" |\  \  /	/|\   __  \|\	_ \  _	 \|\   __  \|\	 ____\|\  ___ \ |\	 ___  \    
+" \ \  \/  / | \  \|\  \ \	\\\__\ \  \ \  \|\	\ \  \___|\ \	__/|\ \  \\ \  \   
+"  \ \	  / / \ \	__	\ \  \\|__| \  \ \	 __  \ \  \  __\ \	\_|/_\ \  \\ \	\  
+"	\/	/  /   \ \	\ \  \ \  \    \ \	\ \  \ \  \ \  \|\	\ \  \_|\ \ \  \\ \  \ 
+" __/  / /		\ \__\ \__\ \__\	\ \__\ \__\ \__\ \_______\ \_______\ \__\\ \__\
+"|\___/ /		 \|__|\|__|\|__|	 \|__|\|__|\|__|\|_______|\|_______|\|__| \|__|
+"\|___|/																		   
 "
 
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
@@ -16,19 +16,19 @@ let s:dein_cache_dir = g:cache_home . '/dein'
 
 " reset augroup
 augroup MyAutoCmd
-    autocmd!
+	autocmd!
 augroup END
 
 if &runtimepath !~# '/dein.vim'
-    let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+	let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
-    " Auto Download
-    if !isdirectory(s:dein_repo_dir)
-        call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-    endif
+	" Auto Download
+	if !isdirectory(s:dein_repo_dir)
+		call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+	endif
 
-    " Load Dein.vim
-    execute 'set runtimepath^=' . s:dein_repo_dir
+	" Load Dein.vim
+	execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
 " dein.vim settings
@@ -38,19 +38,19 @@ let g:dein#install_message_type = 'none'
 let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
-    call dein#begin(s:dein_cache_dir)
+	call dein#begin(s:dein_cache_dir)
 
-    let s:toml_dir = g:config_home . '/nvim'
+	let s:toml_dir = g:config_home . '/nvim'
 
-    call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-    call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+	call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
+	call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
 
-    call dein#end()
-    call dein#save_state()
+	call dein#end()
+	call dein#save_state()
 endif
 
 if has('vim_starting') && dein#check_install()
-    call dein#install()
+	call dein#install()
 endif
 " }}}
 
@@ -125,18 +125,13 @@ set cursorline " Highlight the cursor line
 " Restore last cursor position
 if has("autocmd")
   autocmd BufReadPost *
-        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        \   exe "normal! g'\"" |
-        \ endif
+		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+		\	exe "normal! g'\"" |
+		\ endif
 endif
 
 " Activate backspace key
 set backspace=indent,eol,start
-
-"nnoremap 9 0 " Move the cursor to the beginning of the line with 9
-"nnoremap 0 $ " Move the cursor to the end of the line with 0
-"nnoremap r <C-r> "Redo with r
-"set virtualedit=onemore " Move the cursor to the end of the line one character ahead
 
 
 "----------------------------------------------------------
@@ -156,8 +151,6 @@ nnoremap <F2> <C-t>
 
 set clipboard=unnamed,unnamedplus " Use OS Clipboard
 
-" nnoremap Y y$ " Yank the line with Y
-
 " Do not yank when deleting
 " nnoremap x "_x
 " nnoremap d "_d
@@ -167,5 +160,8 @@ set clipboard=unnamed,unnamedplus " Use OS Clipboard
 "----------------------------------------------------------
 " Save File:
 
-set nobackup " Do not create backup files
-set noswapfile " Do not create swap file
+" Do not create backup files
+set nobackup
+
+" Do not create swap file
+set noswapfile
