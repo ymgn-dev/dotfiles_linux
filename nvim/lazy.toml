@@ -63,15 +63,15 @@ repo = 'w0rp/ale'
 hook_add = '''
 	" Fix Python files with autopep8 and yapf.
 	let g:ale_fixers = {
-		\'python': ['isort', 'autopep8', 'yapf'],
+		\ 'python': ['isort', 'autopep8', 'yapf'],
 	\}
 	
 	" Automatically format every time leaving insert mode.
-	function s:python_format()
+	function! s:pyformat()
 		ALEFix
 	endfunction
 	autocmd FileType python
-		\autocmd InsertLeave * call s:python_format()
+		\ autocmd InsertLeave * call s:pyformat()
 	
 	" Always show colmun
 	let g:ale_sign_column_always = 1
