@@ -66,8 +66,12 @@ hook_add = '''
 		\'python': ['isort', 'autopep8', 'yapf'],
 	\}
 	
-	" Set this variable to 1 to fix files when you save them.
-	autocmd FileType python let g:ale_fix_on_save=1
+	" Automatically format every time leaving insert mode.
+	function s:python_format()
+		ALEFix
+	endfunction
+	autocmd FileType python
+		\autocmd InsertLeave * call s:python_format()
 	
 	" Always show colmun
 	let g:ale_sign_column_always = 1
@@ -92,7 +96,7 @@ hook_add = '''
 	" let g:ale_echo_msg_error_str = 'Error'
 	" let g:ale_echo_msg_warning_str = 'Warning'
 	" let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
-
+	
 	" Navigate between errors quickly(Ctrl+j and Ctrl+k)
 	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nmap <silent> <C-j> <Plug>(ale_next_wrap)
