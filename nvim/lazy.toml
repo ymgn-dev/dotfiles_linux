@@ -140,7 +140,7 @@ hook_add = '''
 	autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 	
 	" Toggle auto formatting:
-	nmap <Leader>C :ClangFormatAutoToggle<CR>	
+	nmap <Leader>C :ClangFormatAutoToggle<CR>
 	
 	" Automatically format every time saving a file.
 	let g:clang_format#auto_format = 1
