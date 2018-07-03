@@ -183,7 +183,6 @@ function s:pyformat()
 	:retab!
 endfunction
 
-" autocmd InsertLeave * :Autoformat
 autocmd InsertLeave * :call s:pyformat()
 '''
 on_ft = ['python']
