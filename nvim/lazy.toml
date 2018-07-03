@@ -17,7 +17,7 @@ hook_source = '''
 	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 	inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 		\ neosnippet#expandable_or_jumpable() ?
-		\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+		\	 "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
 
@@ -32,13 +32,13 @@ repo = 'Shougo/neosnippet'
 hook_source = '''
 	" Plugin key-mappings.
 	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-	smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-	xmap <C-k>     <Plug>(neosnippet_expand_target)
+	imap <C-k>	   <Plug>(neosnippet_expand_or_jump)
+	smap <C-k>	   <Plug>(neosnippet_expand_or_jump)
+	xmap <C-k>	   <Plug>(neosnippet_expand_target)
 	
 	" SuperTab like snippets behavior.
 	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	imap <C-k>	   <Plug>(neosnippet_expand_or_jump)
 	"imap <expr><TAB>
 	" \ pumvisible() ? "\<C-n>" :
 	" \ neosnippet#expandable_or_jumpable() ?
@@ -175,7 +175,7 @@ depends = ['deoplete.nvim']
 repo = 'Chiel92/vim-autoformat'
 hook_add = '''
 let g:autoformat_autoindent = 0
-let g:autoformat_retab = 1
+let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 
 function s:pyformat()
