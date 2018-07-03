@@ -178,7 +178,13 @@ let g:autoformat_autoindent = 0
 let g:autoformat_retab = 1
 let g:autoformat_remove_trailing_spaces = 0
 
-autocmd InsertLeave * :Autoformat
+function s:pyformat()
+	:Autoformat
+	:retab!
+endfunction
+
+" autocmd InsertLeave * :Autoformat
+autocmd InsertLeave * :call s:pyformat()
 '''
 on_ft = ['python']
 
