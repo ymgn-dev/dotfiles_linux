@@ -147,8 +147,12 @@ hook_add = '''
 	
 	" Automatically format every time leaving insert mode.
 	let g:clang_format#auto_format_on_insert_leave = 1
+
+	" Replace equal with clang format
+	autocmd FileType c,cpp setlocal equalprg=clang-format
 '''
 on_ft = ['c', 'cpp', 'cmake']
+on_i = 1
 
 
 #------------------------------------------------------------------------------------------------------------
@@ -169,23 +173,26 @@ depends = ['deoplete.nvim']
 [[plugins]]
 repo = 'sbdchd/neoformat'
 hook_add = '''
-let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
+	let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
 
-" Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
-let g:neoformat_run_all_formatters = 1
+	" Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
+	let g:neoformat_run_all_formatters = 1
 
-function! s:py_format(loop_number)
-let i = 0
-while i < a:loop_number
-	:Neoformat
-	let i = i + 1
-endwhile
-:retab!
-endfunction
+	function! s:py_format()
+		if &ft == 'python'
+			:Neoformat
+			:retab!
+		endif
+	endfunction
 
-autocmd InsertLeave * :call s:py_format(1)
+	" call Neoformat argument times
+	autocmd InsertLeave * :call s:py_format()
+	
+	" Replace equal with autopep8
+	autocmd FileType python setlocal equalprg=autopep8\ -
 '''
 on_ft = ['python']
+on_i = 1
 
 
 #------------------------------------------------------------------------------------------------------------
