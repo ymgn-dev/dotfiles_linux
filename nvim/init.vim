@@ -96,6 +96,13 @@ set softtabstop=0
 
 
 "----------------------------------------------------------
+" Appearance:
+
+set list
+set listchars=tab:¦_,trail:-,nbsp:%,eol:↲,extends:»,precedes:«,nbsp:%
+
+
+"----------------------------------------------------------
 " String Search:
 
 set incsearch " Incremental search. Perform a search for each character entry

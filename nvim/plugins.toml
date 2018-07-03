@@ -11,24 +11,30 @@ repo = 'Shougo/dein.vim'
 
 
 [[plugins]]
-repo = 'tomasr/molokai'
+repo = 'flazz/vim-colorschemes'
 hook_add = '''
 	syntax on
-	colorscheme molokai
+	" colorscheme molokai
+	colorscheme Tomorrow-Night
+	" colorscheme Tomorrow-Night-Bright
+	" colorscheme zenburn
+	" colorscheme onedark
+	" colorscheme badwolf
+	" colorscheme gruvbox
 	set t_Co=256
 '''
 
 
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-	let g:indent_guides_auto_colors=0
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	 ctermbg=235
-	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=237
-	let g:indent_guides_start_level=1
-	let g:indent_guides_enable_on_vim_startup=1
-	let g:indent_guides_guide_size=0
-'''
+#[[plugins]]
+#repo = 'nathanaelkane/vim-indent-guides'
+#hook_add = '''
+#	let g:indent_guides_auto_colors=0
+#	autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd	 ctermbg=235
+#	autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=237
+#	let g:indent_guides_start_level=1
+#	let g:indent_guides_enable_on_vim_startup=1
+#	let g:indent_guides_guide_size=0
+#'''
 
 
 # git clone https://github.com/powerline/fonts.git --depth=1
@@ -71,10 +77,6 @@ repo = 'cespare/vim-toml'
 
 #------------------------------------------------------------------------------------------------------------
 # Others:
-
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
 
 
 [[plugins]]

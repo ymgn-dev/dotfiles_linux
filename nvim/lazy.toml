@@ -85,9 +85,9 @@ hook_add = '''
 	"highlight ALEWarning ctermbg=DarkMagenta
 	
 	" Change echo messages
-	" let g:ale_echo_msg_error_str = 'Error'
-	" let g:ale_echo_msg_warning_str = 'Warning'
-	" let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+	let g:ale_echo_msg_error_str = 'Error'
+	let g:ale_echo_msg_warning_str = 'Warning'
+	let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 	
 	" Navigate between errors quickly(Ctrl+j and Ctrl+k)
 	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -104,10 +104,10 @@ on_ft = ['c', 'cpp','cmake', 'python']
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 hook_source = '''
-	let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
-	let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
-	" let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
+	" let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
 	" let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+	let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
+	let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 on_ft = ['c', 'cpp','cmake']
 depends = ['deoplete.nvim']
@@ -174,7 +174,7 @@ let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
 " Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
 let g:neoformat_run_all_formatters = 1
 
-function s:py_format(loop_number)
+function! s:py_format(loop_number)
 let i = 0
 while i < a:loop_number
 	:Neoformat
