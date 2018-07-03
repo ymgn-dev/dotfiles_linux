@@ -1,12 +1,14 @@
 #------------------------------------------------------------------------------------------------------------
 # Plugin manager:
 
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
 
 #------------------------------------------------------------------------------------------------------------
 # Appearance:
+
 
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -15,6 +17,7 @@ hook_add = '''
 	colorscheme molokai
 	set t_Co=256
 '''
+
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -26,6 +29,7 @@ hook_add = '''
 	let g:indent_guides_enable_on_vim_startup=1
 	let g:indent_guides_guide_size=0
 '''
+
 
 # git clone https://github.com/powerline/fonts.git --depth=1
 # cd fonts
@@ -42,6 +46,7 @@ hook_add = '''
 	nmap <C-p> <Plug>AirlineSelectNextTab
 '''
 
+
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
@@ -52,11 +57,13 @@ hook_add = '''
 #------------------------------------------------------------------------------------------------------------
 # Completion, Syntax:
 
+
 [[plugins]]
 repo = 'ujihisa/neco-look'
 hook_add = '''
 	let g:neocomplete#text_mode_filetypes = { "_" : 1 }
 '''
+
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -65,11 +72,14 @@ repo = 'cespare/vim-toml'
 #------------------------------------------------------------------------------------------------------------
 # Others:
 
+
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
 
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
