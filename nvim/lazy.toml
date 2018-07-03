@@ -65,11 +65,6 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-	" Fix Python files with autopep8 and yapf.
-	let g:ale_fixers = {
-		\ 'python': ['isort', 'autopep8', 'yapf'],
-	\}
-
 	" Always show colmun
 	let g:ale_sign_column_always = 1
 	
@@ -170,20 +165,25 @@ on_ft = ['python']
 depends = ['deoplete.nvim']
 
 
-# pip<version> install autopep8, flake8, yapf, isort
+# pip<version> install autopep8, yapf, isort
 [[plugins]]
-repo = 'Chiel92/vim-autoformat'
+repo = 'sbdchd/neoformat'
 hook_add = '''
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
 
-function s:pyformat()
-	:Autoformat
-	:retab!
+" Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
+let g:neoformat_run_all_formatters = 1
+
+function s:py_format(loop_number)
+let i = 0
+while i < a:loop_number
+	:Neoformat
+	let i = i + 1
+endwhile
+:retab!
 endfunction
 
-autocmd InsertLeave * :call s:pyformat()
+autocmd InsertLeave * :call s:py_format(1)
 '''
 on_ft = ['python']
 
