@@ -1,24 +1,24 @@
 #!/bin/sh
 
-echo ".bashrc unlinked"
 sudo unlink ${HOME}/.bashrc
+echo ".bashrc unlinked"
 
-echo "inputrc unlinked"
 sudo unlink /etc/inputrc
+echo "inputrc unlinked"
 
 # Neovim Installing Check !
 if [ -e "${HOME}/.config/nvim" ]; then
-    echo "nvim found. unlinked!"
     sudo unlink ${HOME}/.config/nvim
+    echo "nvim found. unlinked!"
 else
     echo "nvim not found."
 fi
 
 # Vim Installing Check !
 # if [ -e "${HOME}/.vim" ]; then
-#     echo "Vim found. unlinked !"
 #     sudo unlink ${HOME}/.vim
 #     sudo unlink ${HOME}/.vimrc
+#     echo "Vim found. unlinked !"
 # else
 #     echo "nvim not found."
 # fi
