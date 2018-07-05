@@ -47,7 +47,6 @@ sh link.sh
 プラグインのインストール完了後、下記のコマンドを実行してください。  
 ```:UpdateRemotePlugins```
 
-If you want to unlink dotfiles, execute below command.  
 link.shで貼ったシンボリックリンクを削除する場合、下記のコマンドを実行してください。  
 ```shell
 cd dotfiles/
