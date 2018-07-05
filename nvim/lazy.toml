@@ -167,6 +167,7 @@ hook_add = '''
 	" Do not display docstring
 	autocmd FileType python setlocal completeopt-=preview
 '''
+on_i = 1
 on_ft = ['python']
 depends = ['deoplete.nvim']
 
