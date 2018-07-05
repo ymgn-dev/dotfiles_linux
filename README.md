@@ -64,7 +64,7 @@ sh unlink.sh
 
 ## Requirements
 
-オッパイソン3.5.2 or higher  
+Python3.5.2 or higher  
 
 dotfiles requires Neovim with ```if_python3```.  
 
