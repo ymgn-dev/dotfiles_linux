@@ -35,6 +35,11 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0
 let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 ```
 libclangはUvuntu16.04を使用している場合、バージョンが 3.8がインストールされる可能性があります。  
+その場合は、下記のように設定してください。  
+```
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+```
 
 ## インストール
 
