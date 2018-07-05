@@ -3,7 +3,7 @@
 
 ## Requirements
 
-オッパイソン3.6 or higher  
+オッパイソン3.5.2 or higher  
 
 This dotfiles requires Neovim with ```if_python3```.  
 
