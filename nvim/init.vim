@@ -117,7 +117,6 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 "----------------------------------------------------------
 " Cursor:
 
-"set whichwrap=b,s,h,l,<,>,[,],~ " Enable movement from the end of the line to the beginning of the next line
 set number " Show line number
 highlight LineNr ctermfg=lightgray " Line number color
 set cursorline " Highlight the cursor line
@@ -126,8 +125,6 @@ set cursorline " Highlight the cursor line
 " Because it interferes with accelerated-jk, it is invalid
 "nnoremap j gj
 "nnoremap k gk
-"nnoremap <down> gj
-"nnoremap <up> gk
 
 " Restore last cursor position
 if has("autocmd")
@@ -147,11 +144,6 @@ set backspace=indent,eol,start
 set showmatch " Display the correspondence of parentheses for a moment
 source $VIMRUNTIME/macros/matchit.vim " Extend "%" of Vim
 
-" Display list when there are multiple candidates at jump
-" Select a candidate destination in F3 and jump and return with F2
-nnoremap <F3> g<C-]>
-nnoremap <F2> <C-t>
-
 
 "----------------------------------------------------------
 " Copy Paste:
@@ -159,9 +151,9 @@ nnoremap <F2> <C-t>
 set clipboard=unnamed,unnamedplus " Use OS Clipboard
 
 " Do not yank when deleting
-" nnoremap x "_x
-" nnoremap d "_d
-" nnoremap D "_D<Paste>
+"nnoremap x "_x
+"nnoremap d "_d
+"nnoremap D "_D<Paste>
 
 
 "----------------------------------------------------------
