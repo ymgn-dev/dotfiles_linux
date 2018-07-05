@@ -36,7 +36,7 @@ let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 
 ## Installation
 
-If you link dotfiles with your local bash, inputrc or NeoVim, execute below command.  
+If you link dotfiles with your local .bashrc, inputrc or NeoVim, execute below command.  
 ```shell
 cd dotfiles/
 sh link.sh
