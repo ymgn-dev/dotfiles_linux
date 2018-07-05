@@ -61,11 +61,3 @@ repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
-
-[[plugins]]
-repo = 'rhysd/accelerated-jk'
-hook_add = '''
-	nmap j <Plug>(accelerated_jk_gj)
-	nmap k <Plug>(accelerated_jk_gk)
-'''
