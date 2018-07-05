@@ -23,7 +23,7 @@ sudo apt install clang libclang-dev
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts/
 ./install.sh
-and, set Powerline font
+And set Powerline font
 ```
 
 And you want to enable deoplete-clang, set your libclang path for deoplete-clang in nvim/lazy.toml
