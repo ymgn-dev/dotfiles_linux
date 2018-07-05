@@ -26,7 +26,7 @@ cd fonts/
 and, set Powerline font
 ```
 
-And you want to enable deoplete-clang, set your libclang path in nvim/lazy.toml
+And you want to enable deoplete-clang, set your libclang path for deoplete-clang in nvim/lazy.toml
 
 For example:  
 ```
