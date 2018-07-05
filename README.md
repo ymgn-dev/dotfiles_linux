@@ -2,6 +2,9 @@
 
 
 ## Requirements
+
+オッパイソン3.6 or higher  
+
 This dotfiles requires Neovim with ```if_python3```.  
 
 if ```:echo has('python3')``` returns ```1```, then you have python3 support; otherwise, see below.  
