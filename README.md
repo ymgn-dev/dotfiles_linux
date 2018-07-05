@@ -1,3 +1,8 @@
 # dotfiles
 
-Usage: 
+## Installation
+
+```shell
+cd dotfiles/
+sh link.sh
+```
