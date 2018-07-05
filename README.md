@@ -15,7 +15,7 @@ cd dotfiles/
 sh link.sh
 ```
 
-If you want to unlink, execute below command.  
+If you want to unlink dotfiles, execute below command.  
 ```shell
 cd dotfiles/
 sh unlink.sh
