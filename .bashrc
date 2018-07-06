@@ -133,3 +133,11 @@ export CUDA_HOME=/usr/local/cuda
 export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
+
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
