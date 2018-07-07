@@ -134,8 +134,8 @@ export CFLAGS=-I/$CUDA_PATH/include
 export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
-
-# pyenv
+# pyenv settings
+# git clone https://github.com/pyenv/pyenv.git ~/.pyenv 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
