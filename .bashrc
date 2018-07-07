@@ -135,7 +135,8 @@ export LDFLAGS=-L/$CUDA_PATH/lib64
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 # pyenv settings
-# git clone https://github.com/pyenv/pyenv.git ~/.pyenv 
+# git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+# sudo apt install zlib1g-dev libbz2-dev libreadline6 libreadline6-dev libsqlite3-dev libssl-dev
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then

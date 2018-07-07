@@ -60,7 +60,7 @@ depends = ['neosnippet-snippets']
 # Common:
 
 
-# pip<version> install autopep8, flake8, yapf, isort
+# pip<version> install autopep8 flake8 yapf isort
 # sudo apt install clang-format
 [[plugins]]
 repo = 'w0rp/ale'
@@ -172,7 +172,7 @@ on_ft = ['python']
 depends = ['deoplete.nvim']
 
 
-# pip<version> install autopep8, yapf, isort
+# pip<version> install autopep8 yapf isort
 [[plugins]]
 repo = 'sbdchd/neoformat'
 hook_add = '''
