@@ -4,6 +4,7 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 sudo ln -sf $SCRIPT_DIR/.bashrc ${HOME}/.bashrc
 echo ".bashrc linked"
+source ~/.bashrc
 
 sudo ln -sf $SCRIPT_DIR/inputrc /etc/inputrc
 echo "inputrc linked"
