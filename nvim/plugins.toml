@@ -21,7 +21,7 @@ hook_add = '''
 	" colorscheme onedark
 	" colorscheme badwolf
 	" colorscheme gruvbox
-	set t_Co=256
+	" set t_Co=256
 '''
 
 
