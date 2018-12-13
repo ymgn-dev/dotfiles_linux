@@ -14,8 +14,8 @@ repo = 'Shougo/dein.vim'
 repo = 'flazz/vim-colorschemes'
 hook_add = '''
 	syntax on
-	" colorscheme molokai
-	colorscheme Tomorrow-Night
+	colorscheme molokai
+	" colorscheme Tomorrow-Night
 	" colorscheme Tomorrow-Night-Bright
 	" colorscheme zenburn
 	" colorscheme onedark
