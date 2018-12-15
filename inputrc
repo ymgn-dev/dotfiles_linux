@@ -70,3 +70,6 @@ $endif
 $if Bash
    set completion-ignore-case on
 $endif
+
+# stop bell sound
+set bell-style none
