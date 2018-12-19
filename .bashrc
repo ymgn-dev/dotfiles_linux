@@ -117,7 +117,7 @@ fi
 # Vim Settings
 export XDG_CONFIG_HOME=$HOME/.config
 
-# alias vim="nvim"
+alias vim="nvim"
 alias :q="exit"
 
 # Bash Settings
@@ -144,7 +144,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # QMK firmware
-source ~/qmk_utils/activate_wsl.sh
+if [ -e "~/qmk_utils/activate_wsl.sh" ]; then
+	source ~/qmk_utils/activate_wsl.sh
+fi
 
 # for wsl and VcXsrv environment
 export DISPLAY=:0.0
