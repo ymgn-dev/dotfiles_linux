@@ -127,12 +127,12 @@ shopt -s autocd
 export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.ssh:.swt:.vscode
 
 # CUDA and cuDNN
-export CUDA_PATH=/usr/local/cuda
-export PATH=$CUDA_PATH/bin:${PATH}
-export CUDA_HOME=/usr/local/cuda
-export CFLAGS=-I/$CUDA_PATH/include
-export LDFLAGS=-L/$CUDA_PATH/lib64
-export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
+# export CUDA_PATH=/usr/local/cuda
+# export PATH=$CUDA_PATH/bin:${PATH}
+# export CUDA_HOME=/usr/local/cuda
+# export CFLAGS=-I/$CUDA_PATH/include
+# export LDFLAGS=-L/$CUDA_PATH/lib64
+# export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH
 
 # pyenv settings
 # git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -150,3 +150,6 @@ fi
 
 # for wsl and VcXsrv environment
 export DISPLAY=:0.0
+
+# hyper terminal settings
+alias open_hyper_settings="nvim /mnt/c/Users/yamagen/.hyper.js"
