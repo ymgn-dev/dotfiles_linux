@@ -123,14 +123,15 @@ on_ft = ['c', 'cpp', 'cmake']
 [[plugins]]
 repo = 'rhysd/vim-clang-format'
 hook_add = '''
-	let g:clang_format#code_style = "LLVM"
+	let g:clang_format#code_style = "google"
 	let g:clang_format#style_options = {
+        \ "AlignConsecutiveAssignments": "true",
+        \ "IndentCaseLabels": "true",
 		\ "AccessModifierOffset" : -4,
 		\ "AllowShortIfStatementsOnASingleLine" : "true",
 		\ "AlwaysBreakTemplateDeclarations" : "true",
-		\ "TabWidth" : 4,
-		\ "UseTab" : "Always",
-		\ "Standard" : "C++11"
+		\ "Standard" : "C++11",
+		\ "IndentWidth" : "2"
 	\}
 
 	" map to <Leader>cf in C++ code
@@ -147,7 +148,7 @@ hook_add = '''
 	" let g:clang_format#auto_format = 1
 	
 	" Automatically format every time leaving insert mode.
-	" let g:clang_format#auto_format_on_insert_leave = 1
+	let g:clang_format#auto_format_on_insert_leave = 1
 
 	" Replace equal with clang format
 	autocmd FileType c,cpp setlocal equalprg=clang-format

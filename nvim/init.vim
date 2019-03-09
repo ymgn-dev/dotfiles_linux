@@ -84,7 +84,7 @@ set history=200
 "----------------------------------------------------------
 " Tab Indent:
 
-"set expandtab " Replace tab input with multiple blank inputs
+set expandtab " Replace tab input with multiple blank inputs
 "set noexpandtab " Disable expandtab
 
 set autoindent
