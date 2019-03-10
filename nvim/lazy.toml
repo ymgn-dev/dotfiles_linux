@@ -14,6 +14,7 @@ hook_source = '''
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#file#enable_buffer_path = 1
   let g:deoplete#max_list = 10000
+  autocmd FileType python,c,cpp setlocal completeopt-=preview
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
     \ neosnippet#expandable_or_jumpable() ?
@@ -74,6 +75,9 @@ hook_add = '''
   " Set this. Airline will handle the rest.
   let g:airline#extensions#ale#enabled = 1
 
+  " lint for C, C++
+  let g:ale_cpp_clangcheck_options = "--std=c++1z"
+
   " Change the signs ale uses
   let g:ale_sign_error = '>>'
   let g:ale_sign_warning = '!!'
@@ -109,6 +113,10 @@ hook_source = '''
   "let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
   "let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
+hook_add = '''
+  " Do not display docstring
+  autocmd FileType c,cpp,cmake setlocal completeopt-=preview
+'''
 on_i = 1
 on_ft = ['c', 'cpp','cmake']
 depends = ['deoplete.nvim']
@@ -120,18 +128,21 @@ repo = 'rhysd/vim-clang-format'
 hook_add = '''
   let g:clang_format#code_style = "google"
   let g:clang_format#style_options = {
-        \ "AlignConsecutiveAssignments": "true",
-        \ "IndentCaseLabels": "true",
-    \ "AccessModifierOffset" : -4,
-    \ "AllowShortIfStatementsOnASingleLine" : "true",
-    \ "AlwaysBreakTemplateDeclarations" : "true",
-    \ "Standard" : "C++11",
-    \ "IndentWidth" : "2"
+    \ "AlignConsecutiveAssignments": "true",
+    \ "AlignAfterOpenBracket": "true",
+    \ "AlignTrailingComments": "true",
+    \ "AccessModifierOffset": -2,
+    \ "AllowShortIfStatementsOnASingleLine": "true",
+    \ "AllowShortCaseLabelsOnASingleLine": "true",
+    \ "AlwaysBreakTemplateDeclarations": "false",
+    \ "IndentCaseLabels": "true",
+    \ "Standard": "C++11",
+    \ "IndentWidth": "2"
   \}
 
   " map to <Leader>cf in C++ code
-  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
 
   " Toggle auto formatting:
   " nmap <Leader>C :ClangFormatAutoToggle<CR>
@@ -173,11 +184,12 @@ hook_add = '''
   " Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
   let g:neoformat_run_all_formatters = 1
 
-  " call Neoformat argument times
-  autocmd InsertLeave * :Neoformat
+  " call Neoformat
+  autocmd FileType python nnoremap <buffer><Leader>ff :<C-u>Neoformat<CR>
+  autocmd FileType python vnoremap <buffer><Leader>ff :<C-u>Neoformat<CR>
 
   " Replace equal with autopep8
   autocmd FileType python setlocal equalprg=autopep8\ -
 '''
-on_ft = ['python']
 on_i = 1
+on_ft = ['python']
