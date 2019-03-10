@@ -5,19 +5,19 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#auto_complete_delay = 0
-	let g:deoplete#auto_complete_start_length = 1
-	let g:deoplete#enable_camel_case = 0
-	let g:deoplete#enable_ignore_case = 0
-	let g:deoplete#enable_refresh_always = 0
-	let g:deoplete#enable_smart_case = 1
-	let g:deoplete#file#enable_buffer_path = 1
-	let g:deoplete#max_list = 10000
-	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-	inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-		\ neosnippet#expandable_or_jumpable() ?
-		\	 "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+    \ neosnippet#expandable_or_jumpable() ?
+    \  "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
 on_i = 1
 
@@ -30,26 +30,26 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
-	" Plugin key-mappings.
-	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-	imap <C-k>	   <Plug>(neosnippet_expand_or_jump)
-	smap <C-k>	   <Plug>(neosnippet_expand_or_jump)
-	xmap <C-k>	   <Plug>(neosnippet_expand_target)
-	
-	" SuperTab like snippets behavior.
-	" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-	imap <C-k>	   <Plug>(neosnippet_expand_or_jump)
-	"imap <expr><TAB>
-	" \ pumvisible() ? "\<C-n>" :
-	" \ neosnippet#expandable_or_jumpable() ?
-	" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-	
-	" For conceal markers.
-	if has('conceal')
-	  set conceallevel=2 concealcursor=niv
-	endif
+  " Plugin key-mappings.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  
+  " SuperTab like snippets behavior.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  "imap <expr><TAB>
+  " \ pumvisible() ? "\<C-n>" :
+  " \ neosnippet#expandable_or_jumpable() ?
+  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  
+  " For conceal markers.
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
 '''
 on_i  = 1
 on_ft = ['snippet']
@@ -65,33 +65,33 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-	" Always show colmun
-	let g:ale_sign_column_always = 1
-	
-	" Lint delay time(default : 200)
-	" let g:ale_lint_delay = 100
-	
-	" Set this. Airline will handle the rest.
-	let g:airline#extensions#ale#enabled = 1
-	
-	" Change the signs ale uses
-	let g:ale_sign_error = '>>'
-	let g:ale_sign_warning = '!!'
-	
-	" Disabling highlighting
-	let g:ale_set_highlights = 0
-	
-	" Highlight color
-	"highlight ALEWarning ctermbg=DarkMagenta
-	
-	" Change echo messages
-	let g:ale_echo_msg_error_str = 'Error'
-	let g:ale_echo_msg_warning_str = 'Warning'
-	let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
-	
-	" Navigate between errors quickly(Ctrl+j and Ctrl+k)
-	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-	nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  " Always show colmun
+  let g:ale_sign_column_always = 1
+
+  " Lint delay time(default : 200)
+  " let g:ale_lint_delay = 100
+
+  " Set this. Airline will handle the rest.
+  let g:airline#extensions#ale#enabled = 1
+
+  " Change the signs ale uses
+  let g:ale_sign_error = '>>'
+  let g:ale_sign_warning = '!!'
+
+  " Disabling highlighting
+  let g:ale_set_highlights = 0
+
+  " Highlight color
+  "highlight ALEWarning ctermbg=DarkMagenta
+
+  " Change echo messages
+  let g:ale_echo_msg_error_str = 'Error'
+  let g:ale_echo_msg_warning_str = 'Warning'
+  let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+
+  " Navigate between errors quickly(Ctrl+j and Ctrl+k)
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
 '''
 on_ft = ['c', 'cpp','cmake', 'python']
 
@@ -104,58 +104,49 @@ on_ft = ['c', 'cpp','cmake', 'python']
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 hook_source = '''
-	let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
-	let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
-	"let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
-	"let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+  "let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
+  "let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 on_i = 1
 on_ft = ['c', 'cpp','cmake']
 depends = ['deoplete.nvim']
 
 
-[[plugins]]
-repo = 'kana/vim-operator-user'
-on_ft = ['c', 'cpp', 'cmake']
-
-
 # sudo apt install clang-format
 [[plugins]]
 repo = 'rhysd/vim-clang-format'
 hook_add = '''
-	let g:clang_format#code_style = "google"
-	let g:clang_format#style_options = {
+  let g:clang_format#code_style = "google"
+  let g:clang_format#style_options = {
         \ "AlignConsecutiveAssignments": "true",
         \ "IndentCaseLabels": "true",
-		\ "AccessModifierOffset" : -4,
-		\ "AllowShortIfStatementsOnASingleLine" : "true",
-		\ "AlwaysBreakTemplateDeclarations" : "true",
-		\ "Standard" : "C++11",
-		\ "IndentWidth" : "2"
-	\}
+    \ "AccessModifierOffset" : -4,
+    \ "AllowShortIfStatementsOnASingleLine" : "true",
+    \ "AlwaysBreakTemplateDeclarations" : "true",
+    \ "Standard" : "C++11",
+    \ "IndentWidth" : "2"
+  \}
 
-	" map to <Leader>cf in C++ code
-	" autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-	" autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-	
-	" if you install vim-operator-user
-	autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-	
-	" Toggle auto formatting:
-	nmap <Leader>C :ClangFormatAutoToggle<CR>
-	
-	" Automatically format every time saving a file.
-	" let g:clang_format#auto_format = 1
-	
-	" Automatically format every time leaving insert mode.
-	let g:clang_format#auto_format_on_insert_leave = 1
+  " map to <Leader>cf in C++ code
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
-	" Replace equal with clang format
-	autocmd FileType c,cpp setlocal equalprg=clang-format
+  " Toggle auto formatting:
+  " nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+  " Automatically format every time saving a file.
+  " let g:clang_format#auto_format = 1
+
+  " Automatically format every time leaving insert mode.
+  " let g:clang_format#auto_format_on_insert_leave = 1
+
+  " Replace equal with clang format
+  autocmd FileType c,cpp setlocal equalprg=clang-format
 '''
 on_i = 1
 on_ft = ['c', 'cpp', 'cmake']
-depends = ['vim-operator-user']
 
 
 #------------------------------------------------------------------------------------------------------------
@@ -165,8 +156,8 @@ depends = ['vim-operator-user']
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 hook_add = '''
-	" Do not display docstring
-	autocmd FileType python setlocal completeopt-=preview
+  " Do not display docstring
+  autocmd FileType python setlocal completeopt-=preview
 '''
 on_i = 1
 on_ft = ['python']
@@ -177,23 +168,23 @@ depends = ['deoplete.nvim']
 [[plugins]]
 repo = 'sbdchd/neoformat'
 hook_add = '''
-	let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
+  let g:neoformat_enabled_python = ['isort', 'autopep8', 'yapf']
 
-	" Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
-	let g:neoformat_run_all_formatters = 1
+  " Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
+  let g:neoformat_run_all_formatters = 1
 
-	function! s:py_format()
-		if &ft == 'python'
-			:Neoformat
-			:retab!
-		endif
-	endfunction
+  function! s:py_format()
+    if &ft == 'python'
+      :Neoformat
+      " :retab!
+    endif
+  endfunction
 
-	" call Neoformat argument times
-	autocmd InsertLeave * :call s:py_format()
-	
-	" Replace equal with autopep8
-	autocmd FileType python setlocal equalprg=autopep8\ -
+  " call Neoformat argument times
+  autocmd InsertLeave * :call s:py_format()
+
+  " Replace equal with autopep8
+  autocmd FileType python setlocal equalprg=autopep8\ -
 '''
 on_ft = ['python']
 on_i = 1

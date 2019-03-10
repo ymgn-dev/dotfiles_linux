@@ -13,15 +13,15 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
 hook_add = '''
-	syntax on
-	colorscheme molokai
-	" colorscheme Tomorrow-Night
-	" colorscheme Tomorrow-Night-Bright
-	" colorscheme zenburn
-	" colorscheme onedark
-	" colorscheme badwolf
-	" colorscheme gruvbox
-	" set t_Co=256
+  syntax on
+  colorscheme molokai
+  " colorscheme Tomorrow-Night
+  " colorscheme Tomorrow-Night-Bright
+  " colorscheme zenburn
+  " colorscheme onedark
+  " colorscheme badwolf
+  " colorscheme gruvbox
+  " set t_Co=256
 '''
 
 
@@ -36,7 +36,7 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-	let g:airline_theme = 'murmur'
+  let g:airline_theme = 'murmur'
 '''
 
 
@@ -47,7 +47,7 @@ hook_add = '''
 [[plugins]]
 repo = 'ujihisa/neco-look'
 hook_add = '''
-	let g:neocomplete#text_mode_filetypes = { "_" : 1 }
+  let g:neocomplete#text_mode_filetypes = { "_" : 1 }
 '''
 
 

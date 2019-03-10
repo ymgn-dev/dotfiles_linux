@@ -1,11 +1,11 @@
-"  ___	  ___ ________	_____ ______   ________  ________  _______	 ________	   
-" |\  \  /	/|\   __  \|\	_ \  _	 \|\   __  \|\	 ____\|\  ___ \ |\	 ___  \    
-" \ \  \/  / | \  \|\  \ \	\\\__\ \  \ \  \|\	\ \  \___|\ \	__/|\ \  \\ \  \   
-"  \ \	  / / \ \	__	\ \  \\|__| \  \ \	 __  \ \  \  __\ \	\_|/_\ \  \\ \	\  
-"	\/	/  /   \ \	\ \  \ \  \    \ \	\ \  \ \  \ \  \|\	\ \  \_|\ \ \  \\ \  \ 
-" __/  / /		\ \__\ \__\ \__\	\ \__\ \__\ \__\ \_______\ \_______\ \__\\ \__\
-"|\___/ /		 \|__|\|__|\|__|	 \|__|\|__|\|__|\|_______|\|_______|\|__| \|__|
-"\|___|/																		   
+"  ___    ___ ________  _____ ______   ________  ________  _______   ________    
+" |\  \  /  /|\   __  \|\ _ \  _   \|\   __  \|\   ____\|\  ___ \ |\   ___  \    
+" \ \  \/  / | \  \|\  \ \  \\\__\ \  \ \  \|\  \ \  \___|\ \ __/|\ \  \\ \  \   
+"  \ \    / / \ \ __  \ \  \\|__| \  \ \   __  \ \  \  __\ \  \_|/_\ \  \\ \  \  
+" \/  /  /   \ \  \ \  \ \  \    \ \  \ \  \ \  \ \  \|\  \ \  \_|\ \ \  \\ \  \ 
+" __/  / /    \ \__\ \__\ \__\  \ \__\ \__\ \__\ \_______\ \_______\ \__\\ \__\
+"|\___/ /    \|__|\|__|\|__|   \|__|\|__|\|__|\|_______|\|_______|\|__| \|__|
+"\|___|/                                       
 "
 
 let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
@@ -16,19 +16,19 @@ let s:dein_cache_dir = g:cache_home . '/dein'
 
 " reset augroup
 augroup MyAutoCmd
-	autocmd!
+  autocmd!
 augroup END
 
 if &runtimepath !~# '/dein.vim'
-	let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+  let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
-	" Auto Download
-	if !isdirectory(s:dein_repo_dir)
-		call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-	endif
+  " Auto Download
+  if !isdirectory(s:dein_repo_dir)
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+  endif
 
-	" Load Dein.vim
-	execute 'set runtimepath^=' . s:dein_repo_dir
+  " Load Dein.vim
+  execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
 " dein.vim settings
@@ -38,19 +38,19 @@ let g:dein#install_message_type = 'none'
 let g:dein#enable_notification = 1
 
 if dein#load_state(s:dein_cache_dir)
-	call dein#begin(s:dein_cache_dir)
-	
-	let s:toml_dir = g:config_home . '/nvim'
-	
-	call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
-	call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-	
-	call dein#end()
-	call dein#save_state()
+  call dein#begin(s:dein_cache_dir)
+
+  let s:toml_dir = g:config_home . '/nvim'
+
+  call dein#load_toml(s:toml_dir . '/plugins.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
 endif
 
 if has('vim_starting') && dein#check_install()
-	call dein#install()
+  call dein#install()
 endif
 " }}}
 
@@ -90,8 +90,8 @@ set expandtab " Replace tab input with multiple blank inputs
 set autoindent
 set smartindent " Check the syntax of the previous line on line feed and increase / decrease the indent of the next line
 
-set tabstop=4 " Tab Width
-set shiftwidth=4 " smartindent Width
+set tabstop=2 " Tab Width
+set shiftwidth=2 " smartindent Width
 set softtabstop=0
 
 
@@ -129,9 +129,9 @@ set cursorline " Highlight the cursor line
 " Restore last cursor position
 if has("autocmd")
   autocmd BufReadPost *
-	\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-	\	exe "normal! g'\"" |
-	\ endif
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \ exe "normal! g'\"" |
+  \ endif
 endif
 
 " Activate backspace key
