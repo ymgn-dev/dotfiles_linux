@@ -173,15 +173,8 @@ hook_add = '''
   " Run all enabled formatters (by default Neoformat stops after the first formatter succeeds)
   let g:neoformat_run_all_formatters = 1
 
-  function! s:py_format()
-    if &ft == 'python'
-      :Neoformat
-      " :retab!
-    endif
-  endfunction
-
   " call Neoformat argument times
-  autocmd InsertLeave * :call s:py_format()
+  autocmd InsertLeave * :Neoformat
 
   " Replace equal with autopep8
   autocmd FileType python setlocal equalprg=autopep8\ -
