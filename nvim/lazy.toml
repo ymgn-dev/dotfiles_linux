@@ -128,12 +128,14 @@ repo = 'rhysd/vim-clang-format'
 hook_add = '''
   let g:clang_format#code_style = "google"
   let g:clang_format#style_options = {
-    \ "AlignConsecutiveAssignments": "true",
-    \ "AlignAfterOpenBracket": "true",
+    " \ "AlignConsecutiveAssignments": "true",
     \ "AlignTrailingComments": "true",
+    \ "AlignAfterOpenBracket": "true",
     \ "AccessModifierOffset": -2,
     \ "AllowShortIfStatementsOnASingleLine": "true",
+    \ "AllowShortLoopsOnASingleLine": "true",
     \ "AllowShortCaseLabelsOnASingleLine": "true",
+    \ "AllowShortFunctionsOnASingleLine": "Inline",
     \ "AlwaysBreakTemplateDeclarations": "false",
     \ "IndentCaseLabels": "true",
     \ "Standard": "C++11",
