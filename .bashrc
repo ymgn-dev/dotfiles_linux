@@ -126,6 +126,9 @@ bind 'TAB:menu-complete'
 shopt -s autocd
 export FIGNORE=${FIGNORE}:.svn:.git:.bak:.cache:.compiz:.dbus:.eclipse:.gconf:.gnome:.gvfs:.java:.local:.mozc:.mozilla:.pki:.ssh:.swt:.vscode
 
+# C, C++ compile
+alias cc="g++ --std=c++1z"
+
 # CUDA and cuDNN
 # export CUDA_PATH=/usr/local/cuda
 # export PATH=$CUDA_PATH/bin:${PATH}
