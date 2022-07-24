@@ -5,7 +5,7 @@ set -eu
 
 cd $HOME
 
-DOTFILES_DIR=$HOME/dotfiles-linux
+DOTFILES_DIR=$HOME/dotfiles_linux
 SHELL_DIR=$DOTFILES_DIR/sh
 SYMLINK_DIR=$DOTFILES_DIR/symlink
 
