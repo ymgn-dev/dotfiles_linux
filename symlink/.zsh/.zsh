@@ -1,0 +1,1 @@
+/home/ymgn9314/dotfiles-linux/symlink/.zsh/
