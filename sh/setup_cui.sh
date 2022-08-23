@@ -16,3 +16,6 @@ chsh -s $(which zsh)
 
 # Starship
 curl -sS https://starship.rs/install.sh | sh
+
+# Python3 Venv
+sudo apt install python3.10-venv
